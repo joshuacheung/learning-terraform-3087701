@@ -39,20 +39,20 @@ resource "aws_security_group" "blog" {
 }
 
 resource "aws_security_group" "blog_http_in" {
-  type = "ingress"
-  from_port = 443
-  to_pot = 443
-  protocol = "tcp"
+  type        = "ingress"
+  from_port   = 443
+  to_pot      = 443
+  protocol    = "tcp"
   cidr_blocks = ["0.0.0.0/0"]
 
   security_group = aws.security_group.blog.id 
 }
 
 resource "aws_security_group_rule" "blog_everything_out" {
-  type = "egress"
-  from_port = 0
-  to_pot = 0
-  protocol = "-1"
+  type        = "egress"
+  from_port   = 0
+  to_pot      = 0
+  protocol    = "-1"
   cidr_blocks = ["0.0.0.0/0"]
 
   security_group = aws.security_group.blog.id 
